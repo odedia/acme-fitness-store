@@ -10,7 +10,7 @@ spec:
          name: acme-fitness-authserver
          env: production
    redirectURIs:
-      - #@ "https://acme-fitness.{}/login/oauth2/code/sso".format(data.values.ingress.fqdn)
+      - #@ "https://acme-fitness.{}/login/oauth2/code/sso".format(data.values.ingress.domain)
    requireUserConsent: false
    clientAuthenticationMethod: basic
    authorizationGrantTypes:
