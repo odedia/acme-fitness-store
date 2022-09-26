@@ -23,7 +23,7 @@ metadata:
   name: acme-fitness-appsso-httpproxy
 spec:
   virtualhost:
-    fqdn: #@ "authserver.{}".format(data.values.ingress.fqdn)
+    fqdn: #@ "authserver-acme-fitness.{}".format(data.values.ingress.domain)
     tls:
       secretName: #@ "tanzu-system-ingress/{}".format(data.values.ingress.contour_tls_secret)
   routes:
