@@ -12,7 +12,7 @@ spec:
   - name: CART_PORT
     value: "8080"
   - name: AUTH_URL
-    value: #@ "https://authserver.{}".format(data.values.ingress.fqdn)
+    value: #@ "https://authserver-acme-fitness.{}".format(data.values.ingress.domain)
   - name: AUTH_MODE
     value: "1"
   - name: REDIS_HOST
