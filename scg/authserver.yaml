@@ -13,7 +13,6 @@ metadata:
     sso.apps.tanzu.vmware.com/allow-unsafe-identity-provider: ""
 spec:
   replicas: 1
-  issuerURI: #@ "https://authserver.{}".format(data.values.ingress.fqdn)
   tokenSignature:
     signAndVerifyKeyRef:
       name: "authserver-signing-key"
@@ -22,7 +21,7 @@ spec:
       internalUnsafe:
         users:
           - username: "user"
-            password: "$2a$10$201z9o/tHlocFsHFTo0plukh03ApBYe4dRiXcqeyRQH6CNNtS8jWK"
+            password: "{BCrypt}$2a$10$201z9o/tHlocFsHFTo0plukh03ApBYe4dRiXcqeyRQH6CNNtS8jWK"
             email: "user@example.com"
             roles: ["profile", "email", "roles"]
 ---
