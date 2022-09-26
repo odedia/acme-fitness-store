@@ -22,7 +22,7 @@ spec:
       internalUnsafe:
         users:
           - username: "user"
-            password: "{BCrypt}$2a$10$201z9o/tHlocFsHFTo0plukh03ApBYe4dRiXcqeyRQH6CNNtS8jWK"
+            password: "{bcrypt}$2a$10$201z9o/tHlocFsHFTo0plukh03ApBYe4dRiXcqeyRQH6CNNtS8jWK"
             email: "user@example.com"
             roles: ["profile", "email", "roles"]
 ---
