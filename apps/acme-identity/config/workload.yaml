@@ -10,7 +10,7 @@ metadata:
 spec:
   env:
   - name: JWK_URI
-    value:  #@ "https://authserver.{}/oauth2/jwks".format(data.values.ingress.fqdn)
+    value:  #@ "https://authserver-acme-fitness.{}/oauth2/jwks".format(data.values.ingress.domain)
   params:
   - name: annotations
     value:
