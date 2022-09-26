@@ -11,7 +11,7 @@ spec:
     title: ACME Fitness API Gateway
     description: The entrypoint for all things ACME Fitness
     version: 1.0.0
-    serverUrl: #@ "https://acme-fitness.{}".format(data.values.ingress.fqdn)
+    serverUrl: #@ "https://acme-fitness.{}".format(data.values.ingress.domain)
   env:
     - name: spring.cloud.gateway.httpclient.connect-timeout
       value: "90"
