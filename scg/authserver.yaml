@@ -10,7 +10,7 @@ metadata:
   annotations:
     sso.apps.tanzu.vmware.com/allow-client-namespaces: "default,demos"
     sso.apps.tanzu.vmware.com/allow-unsafe-issuer-uri: ""
-    sso.apps.tanzu.vmware.com/allow-unsafe-identity-provider: ""
+    sso.apps.tanzu.vmware.com/allow-unsafe-identity-provider: "" 
 spec:
   replicas: 1
   tokenSignature:
