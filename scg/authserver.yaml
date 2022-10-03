@@ -13,7 +13,7 @@ metadata:
     sso.apps.tanzu.vmware.com/allow-unsafe-identity-provider: ""
 spec:
   replicas: 1
-  issuerURI: #@ "https://authserver-acme-fitness.{}".format(data.values.ingress.domain)
+  issuerURI: #@ "https://authserver-acme-fitness.apps.{}".format(data.values.ingress.domain)
   tokenSignature:
     signAndVerifyKeyRef:
       name: "authserver-signing-key"
