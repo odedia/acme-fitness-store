@@ -8,23 +8,29 @@ metadata:
     name: acme-fitness-authserver
     env: production
   annotations:
-    sso.apps.tanzu.vmware.com/allow-client-namespaces: "default,demos"
+    sso.apps.tanzu.vmware.com/allow-client-namespaces: default,demos
     sso.apps.tanzu.vmware.com/allow-unsafe-issuer-uri: ""
     sso.apps.tanzu.vmware.com/allow-unsafe-identity-provider: ""
 spec:
   replicas: 1
-  issuerURI: #@ "https://authserver-acme-fitness.apps.{}".format(data.values.ingress.domain)
-  tokenSignature:
-    signAndVerifyKeyRef:
-      name: "authserver-signing-key"
+  tls:
+    deactivated: true
   identityProviders:
     - name: "internal"
       internalUnsafe:
         users:
           - username: "user"
-            password: "{bcrypt}$2a$10$201z9o/tHlocFsHFTo0plukh03ApBYe4dRiXcqeyRQH6CNNtS8jWK"
+            password: '{bcrypt}$2a$10$201z9o/tHlocFsHFTo0plukh03ApBYe4dRiXcqeyRQH6CNNtS8jWK'
             email: "user@example.com"
-            roles: ["profile", "email", "roles"]
+            emailVerified: true
+            roles:
+              - "user"
+              - "profile"
+              - "email"
+              - "roles"
+  tokenSignature:
+    signAndVerifyKeyRef:
+      name: "authserver-signing-key"
 ---
 apiVersion: secretgen.k14s.io/v1alpha1
 kind: RSAKey
